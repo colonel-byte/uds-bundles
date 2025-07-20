@@ -19,10 +19,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        path:
-          - registry1/init-ceph
-          - upstream/init-ceph
-        types:
+        type:
+          - upstream
+          - registry1
+        pkgs:
+          - init-ceph
+        arch:
           - amd64
           - arm64
     outputs:
@@ -51,12 +53,12 @@ jobs:
       - name: Package UDS package
         run: |-
           uds create --confirm \
-            ${{ matrix.path }} \
+            ${{ matrix.type }}/${{ matrix.pkgs }} \
             --no-progress \
             --signing-key env://COSIGN_KEY \
             --signing-key-password ${{ secrets.COSIGN_PASS }} \
-            --architecture ${{ matrix.types }} \
-            --version ${{ steps.describe.outputs.git_describe }} \
+            --architecture ${{ matrix.arch }} \
+            --version ${{ steps.describe.outputs.git_describe }}-${{ matrix.type }}-${{ matrix.arch }} \
             --output .
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
