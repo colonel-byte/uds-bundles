@@ -1,0 +1,69 @@
+name: Release Zarf Package
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+    paths-ignore:
+      - flake.*
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        path:
+          - registry1/init-ceph
+          - upstream/init-ceph
+        types:
+          - amd64
+          - arm64
+    outputs:
+      git-tag: ${{ steps.describe.outputs.git_describe }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Get git info
+        id: describe
+        run: |-
+          echo "git_describe=$(git describe --first-parent --tags)" >> "$GITHUB_OUTPUT"
+
+      - name: Install The Latest Release Version of UDS
+        uses: defenseunicorns/setup-uds@ab842abcad1f7a3305c2538e3dd1950d0daacfa5 # v1.0.1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Package UDS package
+        run: |-
+          uds package create --confirm \
+            ${{ matrix.path }} \
+            --no-progress \
+            --signing-key env://COSIGN_KEY \
+            --signing-key-pass ${{ secrets.COSIGN_PASS }} \
+            --architecture ${{ matrix.types }} \
+            --version ${{ steps.describe.outputs.git_describe }} \
+            --output .
+        env:
+          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+
+      - name: Publish UDS package
+        run: |-
+          uds publish --confirm
+            --no-progress \
+            ./uds-bundle-*.zst
+            oci://ghcr.io/${{ github.repository_owner }}/uds

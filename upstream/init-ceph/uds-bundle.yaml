@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/uds-cli/main/uds.schema.json
+kind: UDSBundle
+metadata:
+  name: rook-ceph-init
+packages:
+  - name: zarf-init-seed
+    repository: ghcr.io/colonel-byte/zarf-init-slim
+    ref: v0.58.0-upstream
+    publicKey: |-
+      https://raw.githubusercontent.com/colonel-byte/zarf-slim-init/refs/heads/main/cosign.pub
+    optionalComponents:
+      - zarf-injector
+      - zarf-seed-registry
+
+  - name: rook-ceph-seed
+    repository: ghcr.io/colonel-byte/zarf/rook-ceph
+    ref: v1.17.6-upstream
+    publicKey: |-
+      https://raw.githubusercontent.com/colonel-byte/zarf-slim-init/refs/heads/main/cosign.pub
+    optionalComponents:
+      - operator-images
+      - cluster-images
+      - operator-seed-chart
+      - cluster-seed-chart
+
+  - name: zarf-init-permanent
+    repository: ghcr.io/colonel-byte/zarf-init-slim
+    ref: v0.58.0-upstream
+    publicKey: |-
+      https://raw.githubusercontent.com/colonel-byte/zarf-slim-init/refs/heads/main/cosign.pub
+    optionalComponents:
+      - zarf-registry
+      - zarf-agent
+      - git-server
+
+  - name: rook-ceph
+    repository: ghcr.io/colonel-byte/zarf/rook-ceph
+    ref: v1.17.6-upstream
+    publicKey: |-
+      https://raw.githubusercontent.com/colonel-byte/zarf-slim-init/refs/heads/main/cosign.pub
+    optionalComponents:
+      - operator-images
+      - cluster-images
