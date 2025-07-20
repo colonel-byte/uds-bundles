@@ -63,7 +63,7 @@ jobs:
 
       - name: Publish UDS package
         run: |-
-          uds publish --confirm \
+          uds publish \
             --no-progress \
             ./uds-bundle-*.zst \
             oci://ghcr.io/${{ github.repository_owner }}/uds
