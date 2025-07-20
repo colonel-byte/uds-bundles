@@ -54,7 +54,7 @@ jobs:
             ${{ matrix.path }} \
             --no-progress \
             --signing-key env://COSIGN_KEY \
-            --signing-key-pass ${{ secrets.COSIGN_PASS }} \
+            --signing-key-password ${{ secrets.COSIGN_PASS }} \
             --architecture ${{ matrix.types }} \
             --version ${{ steps.describe.outputs.git_describe }} \
             --output .
@@ -63,7 +63,7 @@ jobs:
 
       - name: Publish UDS package
         run: |-
-          uds publish --confirm
+          uds publish --confirm \
             --no-progress \
-            ./uds-bundle-*.zst
+            ./uds-bundle-*.zst \
             oci://ghcr.io/${{ github.repository_owner }}/uds
