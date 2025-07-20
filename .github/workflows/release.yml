@@ -50,7 +50,7 @@ jobs:
 
       - name: Package UDS package
         run: |-
-          uds package create --confirm \
+          uds create --confirm \
             ${{ matrix.path }} \
             --no-progress \
             --signing-key env://COSIGN_KEY \
