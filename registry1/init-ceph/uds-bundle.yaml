@@ -41,3 +41,12 @@ packages:
     optionalComponents:
       - operator-images
       - cluster-images
+
+  - name: fluxcd
+    repository: ghcr.io/colonel-byte/zarf/fluxcd
+    ref: v2.6.4-registry1
+    publicKey: |-
+      https://raw.githubusercontent.com/colonel-byte/zarf-slim-init/refs/heads/main/cosign.pub
+    optionalComponents:
+      - fluxcd-images
+      - fluxcd-manifests
