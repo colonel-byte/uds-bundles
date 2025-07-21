@@ -24,6 +24,7 @@ jobs:
           - registry1
         pkgs:
           - init-ceph
+          - init-local-path
         arch:
           - amd64
           - arm64

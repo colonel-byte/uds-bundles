@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/uds-cli/main/uds.schema.json
+kind: UDSBundle
+metadata:
+  name: local-path-init
+packages:
+  - name: zarf-init-seed
+    repository: ghcr.io/colonel-byte/zarf-init-slim
+    ref: v0.58.0-upstream
+    publicKey: |-
+      .github/cosign/colonel-byte.pub
+    optionalComponents:
+      - zarf-injector
+      - zarf-seed-registry
+
+  - name: local-path-seed
+    repository: ghcr.io/colonel-byte/zarf/local-path-provider
+    ref: v0.0.31-upstream
+    publicKey: |-
+      .github/cosign/colonel-byte.pub
+    optionalComponents:
+      - local-path-images
+      - local-path-manifests
+
+  - name: zarf-init-permanent
+    repository: ghcr.io/colonel-byte/zarf-init-slim
+    ref: v0.58.0-upstream
+    publicKey: |-
+      .github/cosign/colonel-byte.pub
+    optionalComponents:
+      - zarf-registry
+      - zarf-agent
+      - git-server
+
+  - name: local-path
+    repository: ghcr.io/colonel-byte/zarf/local-path-provider
+    ref: v0.0.31-upstream
+    publicKey: |-
+      .github/cosign/colonel-byte.pub
+    optionalComponents:
+      - local-path-images
+      - local-path-manifests
+
+  - name: fluxcd
+    repository: ghcr.io/colonel-byte/zarf/fluxcd
+    ref: v2.6.4-upstream
+    publicKey: |-
+      .github/cosign/colonel-byte.pub
+    optionalComponents:
+      - fluxcd-images
+      - fluxcd-manifests
