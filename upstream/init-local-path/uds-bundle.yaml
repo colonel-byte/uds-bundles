@@ -7,7 +7,10 @@ packages:
     repository: ghcr.io/colonel-byte/zarf-init-slim
     ref: v0.58.0-upstream
     publicKey: |-
-      .github/cosign/colonel-byte.pub
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
     optionalComponents:
       - zarf-injector
       - zarf-seed-registry
@@ -16,7 +19,11 @@ packages:
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
     ref: v0.0.31-upstream
     publicKey: |-
-      .github/cosign/colonel-byte.pub
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+
     optionalComponents:
       - local-path-images
       - local-path-manifests
@@ -25,7 +32,11 @@ packages:
     repository: ghcr.io/colonel-byte/zarf-init-slim
     ref: v0.58.0-upstream
     publicKey: |-
-      .github/cosign/colonel-byte.pub
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+
     optionalComponents:
       - zarf-registry
       - zarf-agent
@@ -35,7 +46,11 @@ packages:
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
     ref: v0.0.31-upstream
     publicKey: |-
-      .github/cosign/colonel-byte.pub
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+
     optionalComponents:
       - local-path-images
       - local-path-manifests
@@ -44,7 +59,11 @@ packages:
     repository: ghcr.io/colonel-byte/zarf/fluxcd
     ref: v2.6.4-upstream
     publicKey: |-
-      .github/cosign/colonel-byte.pub
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+
     optionalComponents:
       - fluxcd-images
       - fluxcd-manifests
