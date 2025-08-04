@@ -5,7 +5,7 @@ metadata:
 packages:
   - name: zarf-init-seed
     repository: ghcr.io/colonel-byte/zarf-init-slim
-    ref: v0.58.0-upstream
+    ref: v0.58.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -17,26 +17,24 @@ packages:
 
   - name: local-path-seed
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.31-upstream
+    ref: v0.0.31-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
-
     optionalComponents:
       - local-path-images
       - local-path-manifests
 
   - name: zarf-init-permanent
     repository: ghcr.io/colonel-byte/zarf-init-slim
-    ref: v0.58.0-upstream
+    ref: v0.58.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
-
     optionalComponents:
       - zarf-registry
       - zarf-agent
@@ -44,26 +42,24 @@ packages:
 
   - name: local-path
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.31-upstream
+    ref: v0.0.31-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
-
     optionalComponents:
       - local-path-images
       - local-path-manifests
 
   - name: fluxcd
     repository: ghcr.io/colonel-byte/zarf/fluxcd
-    ref: v2.6.4-upstream
+    ref: v2.6.4-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
-
     optionalComponents:
       - fluxcd-images
       - fluxcd-manifests

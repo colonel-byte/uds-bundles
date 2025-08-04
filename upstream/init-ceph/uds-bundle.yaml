@@ -5,7 +5,7 @@ metadata:
 packages:
   - name: zarf-init-seed
     repository: ghcr.io/colonel-byte/zarf-init-slim
-    ref: v0.58.0-upstream
+    ref: v0.58.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -17,7 +17,7 @@ packages:
 
   - name: rook-ceph-seed
     repository: ghcr.io/colonel-byte/zarf/rook-ceph
-    ref: v1.17.6-upstream
+    ref: v1.17.6-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -31,7 +31,7 @@ packages:
 
   - name: zarf-init-permanent
     repository: ghcr.io/colonel-byte/zarf-init-slim
-    ref: v0.58.0-upstream
+    ref: v0.58.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -44,7 +44,7 @@ packages:
 
   - name: rook-ceph
     repository: ghcr.io/colonel-byte/zarf/rook-ceph
-    ref: v1.17.6-upstream
+    ref: v1.17.6-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -56,7 +56,7 @@ packages:
 
   - name: fluxcd
     repository: ghcr.io/colonel-byte/zarf/fluxcd
-    ref: v2.6.4-upstream
+    ref: v2.6.4-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i

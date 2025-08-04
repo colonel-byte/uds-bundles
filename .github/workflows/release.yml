@@ -21,7 +21,6 @@ jobs:
       matrix:
         type:
           - upstream
-          - registry1
         pkgs:
           - init-ceph
           - init-local-path

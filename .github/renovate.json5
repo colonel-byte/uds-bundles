@@ -4,29 +4,18 @@
     "config:recommended",
     "helpers:pinGitHubActionDigests"
   ],
+  automerge: true,
+  platformAutomerge: true,
+  ignoreUnstable: false,
+  separateMajorMinor: false,
+  dependencyDashboard: true,
   assignees: [
     "@A1994SC"
   ],
-  packageRules: [
-    {
-      matchDatasources: [
-        "regex"
-      ],
-      addLabels: [
-        "renovate/oci"
-      ],
-      groupName: "all dependencies",
-      groupSlug: "all-docker",
-      matchPackageNames: [
-        "*"
-      ]
-    }
-  ],
-  separateMajorMinor: false,
+  packageRules: [],
   "github-actions": {
     enabled: false
   },
-  dependencyDashboard: true,
   customManagers: [
     {
       customType: "regex",
@@ -37,44 +26,9 @@
         "/(^|/).+\\.ya?ml(\\.j2)?$/"
       ],
       matchStrings: [
-        "(?m:renovate: datasource=(?<datasource>.+) depName=(?<depName>\\S+)\\n\\s+(version: |tag: |-.+:)(?<currentValue>(.+))$)"
+        "(?m:^ +repository: (?<registryUrl>.+)\n +ref: (?<currentValue>.+) # renovate:(?: versioning=(?<versioning>.+))?$)",
       ],
-      datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}"
-    },
-    {
-      customType: "regex",
-      datasourceTemplate: "custom.ceph",
-      managerFilePatterns: [
-        "/^values/.+\\.ya?ml(\\.j2)?$/"
-      ],
-      versioningTemplate: "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      matchStrings: [
-        "(?m:renovate-ceph\\n\\s+.+:(?<currentValue>(v[0-9\\.]+)))"
-      ],
-      depNameTemplate: "quay.io/ceph/ceph"
-    },
-    {
-      customType: "regex",
-      description: [
-        "Process custom dependencies"
-      ],
-      managerFilePatterns: [
-        "/(^|/)\\.github/renovate.json(5)?$/"
-      ],
-      matchStrings: [
-        "(?m:defaultRegistryUrlTemplate.+?(?<currentValue>(?:[0-9]+\\.?){3}))"
-      ],
-      datasourceTemplate: "git-tags",
-      depNameTemplate: "https://github.com/rook/rook.git"
+      versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     },
   ],
-  customDatasources: {
-    ceph: {
-      defaultRegistryUrlTemplate: "https://raw.githubusercontent.com/rook/rook/refs/tags/v1.17.7/deploy/charts/rook-ceph-cluster/values.yaml",
-      format: "yaml",
-      transformTemplates: [
-        "($pkg := cephClusterSpec.cephVersion.image; $vrs := $replace($pkg, /^q.+:/, ''); {\"releases\": [{\"version\": $vrs, \"sourceUrl\": \"https://github.com/ceph/ceph\"}]})"
-      ]
-    }
-  }
 }
