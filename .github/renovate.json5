@@ -13,9 +13,6 @@
     "@A1994SC"
   ],
   packageRules: [],
-  "github-actions": {
-    enabled: false
-  },
   customManagers: [
     {
       customType: "regex",
