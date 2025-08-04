@@ -17,14 +17,15 @@
     {
       customType: "regex",
       description: [
-        "Process custom dependencies"
+        "custom regex for dealing with zarf packages inside bundles"
       ],
       managerFilePatterns: [
         "/(^|/).+\\.ya?ml(\\.j2)?$/"
       ],
       matchStrings: [
-        "(?m:^ +repository: (?<registryUrl>.+)\n +ref: (?<currentValue>.+) # renovate:(?: versioning=(?<versioning>.+))?$)",
+        "(?m:^ +repository: (?<depName>.+)\n +ref: (?<currentValue>.+) # renovate:(?: versioning=(?<versioning>.+))?$)",
       ],
+      datasourceTemplate: "docker",
       versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     },
   ],
