@@ -17,7 +17,7 @@ packages:
 
   - name: rook-ceph-seed
     repository: ghcr.io/colonel-byte/zarf/rook-ceph
-    ref: v1.17.7-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v1.18.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -44,7 +44,7 @@ packages:
 
   - name: rook-ceph
     repository: ghcr.io/colonel-byte/zarf/rook-ceph
-    ref: v1.17.7-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v1.18.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
