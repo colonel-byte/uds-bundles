@@ -56,7 +56,7 @@ packages:
 
   - name: fluxcd
     repository: ghcr.io/colonel-byte/zarf/fluxcd
-    ref: v2.6.4-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v2.7.3-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
