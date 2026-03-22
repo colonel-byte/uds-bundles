@@ -1,0 +1,27 @@
+---
+fullnameOverride: local-path-provisioner
+replicaCount: 1
+commonLabels:
+  zarf.dev/agent: ignore # tell Zarf not to mutate any objects
+
+image:
+  repository: "###ZARF_REGISTRY###/rancher/local-path-provisioner"
+  pullPolicy: IfNotPresent
+
+helperImage:
+  repository: "###ZARF_REGISTRY###/library/busybox"
+
+imagePullSecrets:
+  - name: private-registry
+
+storageClass:
+  create: true
+  defaultClass: true
+  pathPattern: |-
+    {{ .PVC.Namespace }}/{{ .PVC.Name }}/
+  provisionerName: rancher.io/local-path
+
+nodePathMap:
+  - node: DEFAULT_PATH_FOR_NON_LISTED_NODES
+    paths:
+      - /var/lib/local-path

@@ -1,0 +1,8 @@
+log_format: console
+no_color: false
+features:
+  - registry-proxy: true
+package:
+  oci_concurrency: 15
+init:
+  registry-mode: proxy

@@ -2,10 +2,11 @@
 kind: UDSBundle
 metadata:
   name: local-path-init
+  version: v0.0.0
 packages:
-  - name: zarf-init-seed
-    repository: ghcr.io/colonel-byte/zarf-init-slim
-    ref: v0.59.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  - name: byte-zarf-init-seed
+    repository: ghcr.io/colonel-byte/zarf/init/slim
+    ref: v0.74.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -14,10 +15,16 @@ packages:
     optionalComponents:
       - zarf-injector
       - zarf-seed-registry
+    overrides:
+      zarf-seed-registry:
+        docker-registry:
+          valuesFiles:
+            - ../../values/registry-core.yaml
+            - ../../values/registry-seed.yaml
 
-  - name: local-path-seed
+  - name: byte-csi-local-path-seed
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.32-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.0.35-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -25,11 +32,16 @@ packages:
       -----END PUBLIC KEY-----
     optionalComponents:
       - local-path-images
-      - local-path-manifests
+      - local-path-chart
+    overrides:
+      local-path-chart:
+        local-path-provider:
+          valuesFiles:
+            - ../../values/local-path-provisioner-values.yaml
 
-  - name: zarf-init-permanent
-    repository: ghcr.io/colonel-byte/zarf-init-slim
-    ref: v0.59.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  - name: byte-zarf-init-permanent
+    repository: ghcr.io/colonel-byte/zarf/init/slim
+    ref: v0.74.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -38,11 +50,16 @@ packages:
     optionalComponents:
       - zarf-registry
       - zarf-agent
-      - git-server
+    overrides:
+      zarf-registry:
+        docker-registry:
+          valuesFiles:
+            - ../../values/registry-core.yaml
+            - ../../values/registry-local-path.yaml
 
-  - name: local-path
+  - name: byte-csi-local-path
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.32-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.0.35-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -50,16 +67,25 @@ packages:
       -----END PUBLIC KEY-----
     optionalComponents:
       - local-path-images
-      - local-path-manifests
 
-  - name: fluxcd
-    repository: ghcr.io/colonel-byte/zarf/fluxcd
-    ref: v2.6.4-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  - name: byte-zarf-init-gitea
+    repository: ghcr.io/colonel-byte/zarf/init/slim
+    ref: v0.74.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
     optionalComponents:
-      - fluxcd-images
-      - fluxcd-manifests
+      - git-server
+
+  # - name: fluxcd
+  #   repository: ghcr.io/colonel-byte/zarf/fluxcd
+  #   ref: v2.8.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  #   publicKey: |-
+  #     -----BEGIN PUBLIC KEY-----
+  #     MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+  #     gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+  #     -----END PUBLIC KEY-----
+  #   optionalComponents:
+  #     - fluxcd-core
