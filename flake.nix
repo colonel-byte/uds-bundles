@@ -17,7 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/treefmt-nix";
     };
-    ascii-pkgs.url = "github:a1994sc/nix-pkgs";
     # keep-sorted end
   };
 
@@ -37,7 +36,6 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-        zarf = inputs.ascii-pkgs.packages.${system}.zarf;
         treefmtEval = treefmt-nix.lib.evalModule pkgs (
           { pkgs, ... }:
           {
@@ -61,7 +59,6 @@
             programs.keep-sorted.enable = true;
             programs.nixfmt = {
               enable = true;
-              package = pkgs.nixfmt-rfc-style;
             };
             projectRootFile = "flake.nix";
             settings.formatter = {
@@ -82,18 +79,7 @@
             export ZARF_CONFIG=$(git rev-parse --show-toplevel)/zarf-config.yaml
           '';
         buildInputs = self.checks.${system}.pre-commit-check.enabledPackages ++ [
-          (pkgs.writeShellScriptBin "zpkg" ''
-            rm -rf $TMPDIR/zarf-*
-            rm -rf $TMPDIR/syft-archive-contents-*
-            rm -rf $TMPDIR/container_images_storage*
-            ${zarf}/bin/zarf package create -o $(git rev-parse --show-toplevel) --log-format=console --confirm $@
-          '')
-          (pkgs.writeShellScriptBin "zdeploy" ''
-            rm -rf $TMPDIR/zarf-*
-            ${zarf}/bin/zarf package deploy --confirm --log-format=console $@
-          '')
           pkgs.gh
-          zarf
           pkgs.oras
         ];
       in
@@ -106,7 +92,6 @@
               check-executables-have-shebangs.enable = true;
               check-shebang-scripts-are-executable.enable = true;
               end-of-file-fixer.enable = true;
-              nixfmt-rfc-style.enable = true;
               trim-trailing-whitespace.enable = true;
               # keep-sorted end
             };
