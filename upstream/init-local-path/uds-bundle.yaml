@@ -50,7 +50,7 @@ packages:
       -----END PUBLIC KEY-----
     optionalComponents:
       - local-path-images
-      - local-path-manifests
+      - local-path-chart
 
   - name: fluxcd
     repository: ghcr.io/colonel-byte/zarf/fluxcd
@@ -61,5 +61,4 @@ packages:
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
     optionalComponents:
-      - fluxcd-images
-      - fluxcd-manifests
+      - fluxcd-core
