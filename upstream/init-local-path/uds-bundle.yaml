@@ -25,7 +25,7 @@ packages:
       -----END PUBLIC KEY-----
     optionalComponents:
       - local-path-images
-      - local-path-manifests
+      - local-path-chart
 
   - name: zarf-init-permanent
     repository: ghcr.io/colonel-byte/zarf/init/slim
