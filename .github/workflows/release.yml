@@ -60,11 +60,11 @@ jobs:
       max-parallel: 1
       matrix:
         flavor:
-          - upstream
           - minimus
+          - upstream
         pkgs:
-          - init-ceph
           - init-local-path
+          - init-ceph
         arch:
           - amd64
           - arm64
@@ -112,7 +112,7 @@ jobs:
             --signing-key env://COSIGN_KEY \
             --signing-key-password ${{ secrets.COSIGN_PASS }} \
             --architecture ${{ matrix.arch }} \
-            --version ${{ steps.tag.outputs.version }}-${{ matrix.flavor }}-${{ matrix.arch }} \
+            --version ${{ steps.tag.outputs.version }}-${{ matrix.flavor }} \
             --output .
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
