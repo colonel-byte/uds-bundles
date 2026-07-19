@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/uds-cli/main/uds.schema.json
 kind: UDSBundle
 metadata:
-  name: local-path-init
-  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/local-path-provider versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
-  version: v0.0.36
+  name: rook-ceph-init
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/rook-ceph versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
+  version: v1.20.2
 packages:
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
-    ref: v0.81.1-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.81.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -17,21 +17,23 @@ packages:
       - zarf-injector
       - zarf-seed-registry
 
-  - name: local-path
-    repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.36-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  - name: rook-ceph
+    repository: ghcr.io/colonel-byte/zarf/rook-ceph
+    ref: v1.20.2-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
     optionalComponents:
-      - local-path-images
-      - local-path-chart
+      - operator-images
+      - cluster-images
+      - operator-seed-chart
+      - cluster-seed-chart
 
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
-    ref: v0.81.1-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.81.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -42,21 +44,21 @@ packages:
       - zarf-agent
       - git-server
 
-  - name: local-path
-    repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.36-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  - name: rook-ceph
+    repository: ghcr.io/colonel-byte/zarf/rook-ceph
+    ref: v1.20.2-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
     optionalComponents:
-      - local-path-images
-      - local-path-chart
+      - operator-images
+      - cluster-images
 
   - name: fluxcd
     repository: ghcr.io/colonel-byte/zarf/fluxcd
-    ref: v2.9.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v2.9.2-minus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i

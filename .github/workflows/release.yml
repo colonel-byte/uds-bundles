@@ -10,36 +10,79 @@ on:
       - flake.*
 
 jobs:
+  info:
+    name: Determine build info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Determine Build Tag
+        id: tag
+        env:
+          sha: ${{ github.sha }}
+          job: ${{ github.run_number }}
+        run: |-
+          echo "TAG=$(echo $job-${sha:0:8})" >> $GITHUB_OUTPUT
+
+      - name: Get Git Tag Info
+        id: git-tag
+        run: |-
+          if ${{ startsWith(github.ref, 'refs/tags/') }}; then
+            echo "tag=$(echo ${{ github.ref }} | sed 's!refs/tags/!!g')"
+            echo "tag=$(echo ${{ github.ref }} | sed 's!refs/tags/!!g')" >> $GITHUB_OUTPUT
+          else
+            echo "TAG=''"
+            echo "TAG=''" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Output version
+        id: determine
+        run: |-
+          if [[ "${{ steps.git-tag.outputs.TAG }}" != "''" ]]; then
+            echo "version=${{ steps.git-tag.outputs.TAG }}"
+            echo "version=${{ steps.git-tag.outputs.TAG }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ steps.tag.outputs.TAG }}"
+            echo "version=${{ steps.tag.outputs.TAG }}" >> $GITHUB_OUTPUT
+          fi
+    outputs:
+      tag: ${{ steps.determine.outputs.version }}
+
   release:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
       packages: write
+    needs:
+      - info
     strategy:
       fail-fast: false
       max-parallel: 1
       matrix:
-        type:
+        flavor:
           - upstream
+          - minimus
         pkgs:
           - init-ceph
           - init-local-path
         arch:
           - amd64
           - arm64
-    outputs:
-      git-tag: ${{ steps.describe.outputs.git_describe }}
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           fetch-depth: 0
 
-      - name: Get git info
-        id: describe
+      - name: Determine Build Tag
+        id: tag
+        env:
+          sha: ${{ github.sha }}
+          job: ${{ github.run_number }}
         run: |-
-          echo "git_describe=$(git describe --first-parent --tags)" >> "$GITHUB_OUTPUT"
+          echo "version=$(yq '.metadata.version' ${{ matrix.flavor }}/${{ matrix.pkgs }}/uds-bundle.yaml)-${{ needs.info.outputs.tag }}" >> $GITHUB_OUTPUT
 
       - name: Install The Latest Release Version of UDS
         uses: defenseunicorns/setup-uds@ab842abcad1f7a3305c2538e3dd1950d0daacfa5 # v1.0.1
@@ -54,12 +97,12 @@ jobs:
       - name: Package UDS package
         run: |-
           uds create --confirm \
-            ${{ matrix.type }}/${{ matrix.pkgs }} \
+            ${{ matrix.flavor }}/${{ matrix.pkgs }} \
             --no-progress \
             --signing-key env://COSIGN_KEY \
             --signing-key-password ${{ secrets.COSIGN_PASS }} \
             --architecture ${{ matrix.arch }} \
-            --version ${{ steps.describe.outputs.git_describe }}-${{ matrix.type }}-${{ matrix.arch }} \
+            --version ${{ steps.tag.outputs.version }}-${{ matrix.flavor }}-${{ matrix.arch }} \
             --output .
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}

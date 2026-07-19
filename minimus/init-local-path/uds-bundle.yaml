@@ -2,7 +2,7 @@
 kind: UDSBundle
 metadata:
   name: local-path-init
-  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/local-path-provider versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/local-path-provider versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
   version: v0.0.36
 packages:
   - name: zarf-init
@@ -19,7 +19,7 @@ packages:
 
   - name: local-path
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.36-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.0.36-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -44,7 +44,7 @@ packages:
 
   - name: local-path
     repository: ghcr.io/colonel-byte/zarf/local-path-provider
-    ref: v0.0.36-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.0.36-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -56,7 +56,7 @@ packages:
 
   - name: fluxcd
     repository: ghcr.io/colonel-byte/zarf/fluxcd
-    ref: v2.9.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v2.9.2-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i

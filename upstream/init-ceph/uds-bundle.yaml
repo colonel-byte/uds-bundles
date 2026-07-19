@@ -2,8 +2,10 @@
 kind: UDSBundle
 metadata:
   name: rook-ceph-init
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/rook-ceph versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  version: v1.20.2
 packages:
-  - name: zarf-init-seed
+  - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
     ref: v0.81.1-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
@@ -15,7 +17,7 @@ packages:
       - zarf-injector
       - zarf-seed-registry
 
-  - name: rook-ceph-seed
+  - name: rook-ceph
     repository: ghcr.io/colonel-byte/zarf/rook-ceph
     ref: v1.20.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
@@ -29,7 +31,7 @@ packages:
       - operator-seed-chart
       - cluster-seed-chart
 
-  - name: zarf-init-permanent
+  - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
     ref: v0.81.1-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
