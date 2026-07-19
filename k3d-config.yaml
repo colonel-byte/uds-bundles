@@ -1,0 +1,30 @@
+---
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: zarf
+servers: 3
+agents: 3
+image: docker.io/rancher/k3s:v1.36.1-k3s1
+volumes:
+  - volume: /tmp/k3d:/var/lib/local-path-provisioner
+    nodeFilters:
+      - server:*
+      - agent:*
+options:
+  k3d:
+    disableImageVolume: false
+  k3s:
+    extraArgs:
+      - arg: "--disable=local-storage"
+        nodeFilters:
+          - server:*
+      - arg: "--disable=traefik"
+        nodeFilters:
+          - server:*
+      - arg: "--disable=traefik-crd"
+        nodeFilters:
+          - server:*
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true
