@@ -1,13 +1,11 @@
 name: Release Zarf Package
 
 on:
+  schedule:
+    - cron: "15 4 * * *"
   push:
     branches:
       - main
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
-    paths-ignore:
-      - flake.*
 
 jobs:
   info:
@@ -94,7 +92,19 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Package UDS package
+      - name: Package UDS package, version
+        run: |-
+          uds create --confirm \
+            ${{ matrix.flavor }}/${{ matrix.pkgs }} \
+            --no-progress \
+            --signing-key env://COSIGN_KEY \
+            --signing-key-password ${{ secrets.COSIGN_PASS }} \
+            --architecture ${{ matrix.arch }} \
+            --output .
+        env:
+          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+
+      - name: Package UDS package, commit
         run: |-
           uds create --confirm \
             ${{ matrix.flavor }}/${{ matrix.pkgs }} \
@@ -109,7 +119,4 @@ jobs:
 
       - name: Publish UDS package
         run: |-
-          uds publish \
-            --no-progress \
-            ./uds-bundle-*.zst \
-            oci://ghcr.io/${{ github.repository_owner }}/uds
+          find . -iname "*.tar.zst" -exec uds publish --no-progress '{}' oci://ghcr.io/${{ github.repository_owner }}/uds \;
