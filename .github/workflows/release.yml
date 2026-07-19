@@ -80,7 +80,7 @@ jobs:
           sha: ${{ github.sha }}
           job: ${{ github.run_number }}
         run: |-
-          echo "version=$(yq '.metadata.version' ${{ matrix.flavor }}/${{ matrix.pkgs }}/uds-bundle.yaml)-${{ needs.info.outputs.tag }}" >> $GITHUB_OUTPUT
+          echo "version=$(yq '.metadata.version' ${{ matrix.flavor }}/${{ matrix.pkgs }}/uds-bundle.yaml)" >> $GITHUB_OUTPUT
 
       - name: Install The Latest Release Version of UDS
         uses: defenseunicorns/setup-uds@ab842abcad1f7a3305c2538e3dd1950d0daacfa5 # v1.0.1
@@ -100,6 +100,7 @@ jobs:
             --signing-key env://COSIGN_KEY \
             --signing-key-password ${{ secrets.COSIGN_PASS }} \
             --architecture ${{ matrix.arch }} \
+            --version ${{ steps.tag.outputs.version }}-${{ matrix.flavor }} \
             --output .
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
@@ -112,7 +113,7 @@ jobs:
             --signing-key env://COSIGN_KEY \
             --signing-key-password ${{ secrets.COSIGN_PASS }} \
             --architecture ${{ matrix.arch }} \
-            --version ${{ steps.tag.outputs.version }}-${{ matrix.flavor }} \
+            --version ${{ steps.tag.outputs.version }}-${{ needs.info.outputs.tag }}-${{ matrix.flavor }} \
             --output .
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
