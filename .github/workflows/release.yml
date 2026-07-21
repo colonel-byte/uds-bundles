@@ -64,12 +64,12 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        flavor:
-          - minimus
-          - upstream
         pkgs:
           - init-local-path
           - init-ceph
+        flavor:
+          - upstream
+          - minimus
         arch:
           - amd64
           - arm64
