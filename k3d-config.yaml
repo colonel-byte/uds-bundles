@@ -5,6 +5,7 @@ metadata:
   name: zarf
 servers: 3
 agents: 3
+# renovate: datasource=docker depName=docker.io/rancher/k3s
 image: docker.io/rancher/k3s:v1.36.1-k3s1
 volumes:
   - volume: /tmp/k3d:/var/lib/local-path-provisioner
