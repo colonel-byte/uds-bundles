@@ -2,7 +2,7 @@
 kind: UDSBundle
 metadata:
   name: local-path-init
-  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/local-path-provider versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-local-path-provider versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
   version: v0.0.36
 packages:
   - name: zarf-init
@@ -18,7 +18,7 @@ packages:
       - zarf-seed-registry
 
   - name: local-path
-    repository: ghcr.io/colonel-byte/zarf/local-path-provider
+    repository: ghcr.io/colonel-byte/zarf/csi-local-path-provider
     ref: v0.0.36-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
@@ -43,7 +43,7 @@ packages:
       - git-server
 
   - name: local-path
-    repository: ghcr.io/colonel-byte/zarf/local-path-provider
+    repository: ghcr.io/colonel-byte/zarf/csi-local-path-provider
     ref: v0.0.36-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----

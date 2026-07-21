@@ -2,7 +2,7 @@
 kind: UDSBundle
 metadata:
   name: rook-ceph-init
-  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/rook-ceph versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-rook-ceph versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
   version: v1.20.2
 packages:
   - name: zarf-init
@@ -18,7 +18,7 @@ packages:
       - zarf-seed-registry
 
   - name: rook-ceph
-    repository: ghcr.io/colonel-byte/zarf/rook-ceph
+    repository: ghcr.io/colonel-byte/zarf/csi-rook-ceph
     ref: v1.20.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
@@ -30,6 +30,7 @@ packages:
       - cluster-images
       - operator-seed-chart
       - cluster-seed-chart
+      - registry-bucket
 
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
@@ -40,12 +41,12 @@ packages:
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
     optionalComponents:
-      - zarf-registry
+      - zarf-registry-ceph
       - zarf-agent
       - git-server
 
   - name: rook-ceph
-    repository: ghcr.io/colonel-byte/zarf/rook-ceph
+    repository: ghcr.io/colonel-byte/zarf/csi-rook-ceph
     ref: v1.20.2-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
@@ -55,6 +56,7 @@ packages:
     optionalComponents:
       - operator-images
       - cluster-images
+      - registry-bucket
 
   - name: fluxcd
     repository: ghcr.io/colonel-byte/zarf/fluxcd
