@@ -17,7 +17,7 @@ packages:
       - zarf-injector
       - zarf-seed-registry
 
-  - name: rook-ceph
+  - name: csi-rook-ceph
     repository: ghcr.io/colonel-byte/zarf/csi-rook-ceph
     ref: v1.20.2-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
@@ -45,7 +45,7 @@ packages:
       - zarf-agent
       - git-server
 
-  - name: rook-ceph
+  - name: csi-rook-ceph
     repository: ghcr.io/colonel-byte/zarf/csi-rook-ceph
     ref: v1.20.2-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
