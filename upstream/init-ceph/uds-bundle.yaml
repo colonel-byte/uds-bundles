@@ -41,6 +41,7 @@ packages:
       gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
       -----END PUBLIC KEY-----
     optionalComponents:
+      - zarf-seed-registry
       - zarf-registry-ceph
       - zarf-agent
       - git-server
