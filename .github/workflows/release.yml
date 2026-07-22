@@ -98,6 +98,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Package UDS package, version
+        shell: bash
         run: |-
           uds create --confirm \
             ${{ matrix.flavor }}/${{ matrix.pkgs }} \
@@ -110,19 +111,13 @@ jobs:
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
 
-      - name: Package UDS package, commit
+      - name: Publish UDS package, version
+        shell: bash
         run: |-
-          uds create --confirm \
-            ${{ matrix.flavor }}/${{ matrix.pkgs }} \
-            --no-progress \
-            --signing-key env://COSIGN_KEY \
-            --signing-key-password ${{ secrets.COSIGN_PASS }} \
-            --architecture ${{ matrix.arch }} \
-            --version ${{ steps.tag.outputs.version }}-${{ needs.info.outputs.tag }}-${{ matrix.flavor }} \
-            --output .
-        env:
-          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+          uds publish --no-progress ./uds*.tar.zst oci://ghcr.io/${{ github.repository_owner }}/uds
 
-      - name: Publish UDS package
+      - name: Publish UDS package, commit
+        shell: bash
         run: |-
-          find . -iname "*.tar.zst" -exec uds publish --no-progress '{}' oci://ghcr.io/${{ github.repository_owner }}/uds \;
+          uds publish --no-progress ./uds*.tar.zst oci://ghcr.io/${{ github.repository_owner }}/uds \
+            --version ${{ steps.tag.outputs.version }}-${{ needs.info.outputs.tag }}-${{ matrix.flavor }}
