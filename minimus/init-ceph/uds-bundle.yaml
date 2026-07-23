@@ -30,7 +30,6 @@ packages:
       - cluster-images
       - operator-seed-chart
       - cluster-seed-chart
-      - driver-chart
       - registry-bucket
 
   - name: zarf-init
