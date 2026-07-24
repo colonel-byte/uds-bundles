@@ -7,7 +7,7 @@ metadata:
 packages:
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
-    ref: v0.81.1-rook # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-rook$
+    ref: v0.82.0-rook # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-rook$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -34,7 +34,7 @@ packages:
 
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
-    ref: v0.81.1-rook # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-rook$
+    ref: v0.82.0-rook # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-rook$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
