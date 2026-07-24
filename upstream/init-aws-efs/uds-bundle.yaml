@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/uds-cli/main/uds.schema.json
+kind: UDSBundle
+metadata:
+  name: aws-efs-init
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-aws-efs versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+  version: 4.3.0-upstream
+packages:
+  - name: zarf-init
+    repository: ghcr.io/colonel-byte/zarf/init/slim
+    ref: v0.82.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    publicKey: |-
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+    optionalComponents:
+      - zarf-injector
+      - zarf-seed-registry
+
+  - name: pkg-aws-ccm
+    repository: ghcr.io/colonel-byte/zarf/pkg-aws-ccm
+    ref: 0.0.10-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    publicKey: |-
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+
+  - name: csi-aws-efs
+    repository: ghcr.io/colonel-byte/zarf/csi-aws-efs
+    ref: 4.3.0-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    publicKey: |-
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+
+  - name: zarf-init
+    repository: ghcr.io/colonel-byte/zarf/init/slim
+    ref: v0.82.0-upstream # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    publicKey: |-
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+    optionalComponents:
+      - zarf-registry
+      - zarf-agent
+      - git-server
+
+  - name: pkg-aws-ccm
+    repository: ghcr.io/colonel-byte/zarf/pkg-aws-ccm
+    ref: 0.0.10-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    publicKey: |-
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
+
+  - name: csi-aws-efs
+    repository: ghcr.io/colonel-byte/zarf/csi-aws-efs
+    ref: 4.3.0-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    publicKey: |-
+      -----BEGIN PUBLIC KEY-----
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
+      gpSPeDLCe/vVb1fCLXz7k0BDlDB4z7H6A4CZ9WE1tQ/wBZa2Jd194+SVGw==
+      -----END PUBLIC KEY-----
