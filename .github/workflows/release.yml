@@ -69,7 +69,7 @@ jobs:
           - init-ceph
         flavor:
           - upstream
-          - minimus
+          # - minimus
         arch:
           - amd64
           - arm64
