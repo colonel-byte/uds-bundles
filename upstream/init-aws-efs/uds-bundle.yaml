@@ -19,7 +19,7 @@ packages:
 
   - name: pkg-aws-ccm
     repository: ghcr.io/colonel-byte/zarf/pkg-aws-ccm
-    ref: 0.0.10-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: 0.0.11-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -50,7 +50,7 @@ packages:
 
   - name: pkg-aws-ccm
     repository: ghcr.io/colonel-byte/zarf/pkg-aws-ccm
-    ref: 0.0.10-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: 0.0.11-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
