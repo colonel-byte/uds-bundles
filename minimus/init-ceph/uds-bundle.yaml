@@ -19,7 +19,7 @@ packages:
 
   - name: csi-rook-ceph
     repository: ghcr.io/colonel-byte/zarf/csi-rook-ceph
-    ref: v1.20.2-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
+    ref: v1.20.3-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -47,7 +47,7 @@ packages:
 
   - name: csi-rook-ceph
     repository: ghcr.io/colonel-byte/zarf/csi-rook-ceph
-    ref: v1.20.2-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
+    ref: v1.20.3-minimus # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
