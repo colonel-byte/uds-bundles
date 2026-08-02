@@ -2,7 +2,7 @@
 kind: UDSBundle
 metadata:
   name: aws-ebs-init
-  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-aws-ebs versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$ extractVersion=^v(?<version>.*)-upstream$
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-aws-ebs versioning=regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$ extractVersion=^(?<version>.*)-upstream$
   version: v2.62.0
 packages:
   - name: zarf-init
@@ -19,7 +19,7 @@ packages:
 
   - name: pkg-aws-ccm
     repository: ghcr.io/colonel-byte/zarf/pkg-aws-ccm
-    ref: 0.0.11-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.0.11-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -28,7 +28,7 @@ packages:
 
   - name: csi-aws-ebs
     repository: ghcr.io/colonel-byte/zarf/csi-aws-ebs
-    ref: 2.63.1-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v2.63.1-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -50,7 +50,7 @@ packages:
 
   - name: pkg-aws-ccm
     repository: ghcr.io/colonel-byte/zarf/pkg-aws-ccm
-    ref: 0.0.11-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v0.0.11-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -59,7 +59,7 @@ packages:
 
   - name: csi-aws-ebs
     repository: ghcr.io/colonel-byte/zarf/csi-aws-ebs
-    ref: 2.63.1-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
+    ref: v2.63.1-upstream # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
