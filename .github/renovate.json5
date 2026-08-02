@@ -24,11 +24,12 @@
       ],
       matchStrings: [
         "(?m:^ +repository: (?<depName>.+)\n +ref: (?<currentValue>.+) # renovate:(?: versioning=(?<versioning>.+))?$)",
-        "(?m:# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: versioning=(?<versioning>.+))?\n.+?(?<currentValue>v?(?:[0-9]+\\.?){3,4}(?:-.+)?)[\\'\"]?$)",
+        "(?m:# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: versioning=(?<versioning>\\S+))?(?: extractVersion=(?<extractVersion>.+?))?\n.+?(?<currentValue>v?(?:[0-9]+\\.?){3,4}(?:-.+)?)[\\'\"]?$)",
         "(?m:# renovate: datasource=(?<datasource>\\S+)\n.+: (?:oci:/{2})?(?<depName>[a-z0-9\\.].+):(?<currentValue>v?([0-9]+\\.?){3}(-.+)?$))"
       ],
       datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}docker{{/if}}",
       versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      extractVersionTemplate: "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.+)${{/if}}"
     },
   ],
 }
