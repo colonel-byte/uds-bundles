@@ -2,8 +2,8 @@
 kind: UDSBundle
 metadata:
   name: aws-efs-init
-  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-aws-efs versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-upstream$
-  version: 4.3.0
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-aws-efs versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$ extractVersion=^(?<version>.*)-upstream$
+  version: v4.3.0
 packages:
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
