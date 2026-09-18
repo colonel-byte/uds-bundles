@@ -19,7 +19,7 @@ packages:
 
   - name: csi-local-path
     repository: ghcr.io/colonel-byte/zarf/csi-local-path-provider
-    ref: v0.0.36-minimus # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
+    ref: v0.0.37-minimus # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -44,7 +44,7 @@ packages:
 
   - name: csi-local-path
     repository: ghcr.io/colonel-byte/zarf/csi-local-path-provider
-    ref: v0.0.36-minimus # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
+    ref: v0.0.37-minimus # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-minimus$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
