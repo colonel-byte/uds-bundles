@@ -2,12 +2,12 @@
 kind: UDSBundle
 metadata:
   name: aws-ebs-init
-  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-aws-ebs versioning=regex:^(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$ extractVersion=^(?<version>.*)-upstream$
+  # renovate: datasource=docker depName=ghcr.io/colonel-byte/zarf/csi-aws-ebs versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$ extractVersion=^(?<version>.*)-upstream$
   version: v2.63.1
 packages:
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
-    ref: v0.82.0-cloud # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-cloud$
+    ref: v0.82.0-cloud # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-cloud$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i
@@ -37,7 +37,7 @@ packages:
 
   - name: zarf-init
     repository: ghcr.io/colonel-byte/zarf/init/slim
-    ref: v0.82.0-cloud # renovate: versioning=regex:^v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-cloud$
+    ref: v0.82.0-cloud # renovate: versioning=regex:^v?(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)-cloud$
     publicKey: |-
       -----BEGIN PUBLIC KEY-----
       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEE8OI3UGfXCbNY8myt2Dc7M8Y2d5i

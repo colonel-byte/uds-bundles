@@ -1,0 +1,3 @@
+variables:
+  zarf-init:
+    init_registry_mode: "proxy"
