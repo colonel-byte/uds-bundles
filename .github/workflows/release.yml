@@ -2,11 +2,11 @@ name: Release Zarf Package
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "15 4 * * *"
-  push:
-    branches:
-      - main
+  #schedule:
+  #  - cron: "15 4 * * *"
+  #push:
+  #  branches:
+  #    - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
